@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Subway Indonesia</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: #007932;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar .logo {
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .navbar .logo span {
+      color: #FFC600;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin-left: 15px;
+      font-size: 14px;
+    }
+
+    .navbar a:hover {
+      color: #FFC600;
+    }
+
+    .navbar .order-btn {
+      background-color: #FFC600;
+      color: black;
+      padding: 7px 14px;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+
+    .hero {
+      background-color: #005924;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero h1 {
+      font-size: 45px;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 span {
+      color: #FFC600;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .hero a {
+      background-color: #FFC600;
+      color: black;
+      padding: 10px 22px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 5px;
+      display: inline-block;
+    }
+
+    .hero a.outline {
+      background-color: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+
+    #menu {
+      background-color: white;
+      padding: 40px 30px;
+    }
+
+    #menu h2 {
+      color: #007932;
+      font-size: 26px;
+      margin-bottom: 5px;
+    }
+
+    #menu p {
+      color: #777;
+      margin-bottom: 20px;
+    }
+
+    .menu-container {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      width: 210px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: #fafafa;
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      background-color: black;
+    }
+
+    .card:hover {
+      border-color: #007932;
+    }
+
+    .card-info {
+      padding: 12px;
+    }
+
+    .card-info h3 {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .card-info p {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .card-info .price {
+      font-weight: bold;
+      color: #007932;
+    }
+
+    .card-info button {
+      float: right;
+      background-color: #007932;
+      color: white;
+      border: none;
+      padding: 5px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .card-info button:hover {
+      background-color: #005924;
+    }
+
+    #steps {
+      padding: 40px 30px;
+      background-color: #f2f2f2;
+    }
+
+    #steps h2 {
+      color: #007932;
+      font-size: 26px;
+      margin-bottom: 5px;
+    }
+
+    #steps p.desc {
+      color: #777;
+      margin-bottom: 20px;
+    }
+
+    .steps-container {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .step-card {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: 190px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .step-card img {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+    }
+
+    .step-card .step-info {
+      padding: 12px;
+    }
+
+    .step-card .step-info .num {
+      font-size: 24px;
+      font-weight: bold;
+      color: #FFC600;
+    }
+
+    .step-card .step-info h3 {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .step-card .step-info p {
+      font-size: 12px;
+      color: #777;
+    }
+
+    #promo {
+      padding: 40px 30px;
+      background-color: white;
+    }
+
+    #promo h2 {
+      color: #007932;
+      font-size: 26px;
+      margin-bottom: 5px;
+    }
+
+    #promo p.desc {
+      color: #777;
+      margin-bottom: 20px;
+    }
+
+    .promo-container {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .promo-card {
+      width: 240px;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .promo-card.green {
+      background-color: #007932;
+      color: white;
+    }
+
+    .promo-card.yellow {
+      background-color: #FFC600;
+      color: #333;
+    }
+
+    .promo-card.dark {
+      background-color: #222;
+      color: white;
+    }
+
+    .promo-card h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .promo-card p {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    #location {
+      padding: 40px 30px;
+      background-color: #f2f2f2;
+    }
+
+    #location h2 {
+      color: #007932;
+      font-size: 26px;
+      margin-bottom: 5px;
+    }
+
+    #location p {
+      color: #777;
+      margin-bottom: 15px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tags span {
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 13px;
+    }
+
+    footer {
+      background-color: #222;
+      color: #aaa;
+      text-align: center;
+      padding: 25px;
+      font-size: 13px;
+      margin-top: 0px;
+    }
+
+    footer a {
+      color: #aaa;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    footer a:hover {
+      color: #FFC600;
+    }
+
+    footer p {
+      margin-top: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar">
+    <div class="logo">SUB<span>WAY</span></div>
+    <div>
+      <a href="#menu">Menu</a>
+      <a href="#steps">How to Order</a>
+      <a href="#promo">Promo</a>
+      <a href="#location">Location</a>
+      <a href="https://www.subway.co.id/our-menu/" class="order-btn" target="_blank">Order Now</a>
+    </div>
+  </div>
+  <div class="hero">
+    <img src="subway_logo.png" alt="Subway Logo" style="height: 140px; margin-bottom: 10px;">
+    <h1>FRESH <span>YOUR WAY</span></h1>
+    <p>Fresh bread baked every day. Choose your own ingredients. Made right in front of you!</p>
+    <a href="https://www.subway.co.id/our-menu/" target="_blank">See Our Menu</a>
+    <a href="#steps" class="outline">How to Order</a>
+  </div>
+  <div id="menu">
+    <h2>Our Menu</h2>
+    <p>All made fresh every day!</p>
+    <div class="menu-container">
+      <div class="card">
+        <img src="bread.png" alt="Subway Club">
+        <div class="card-info">
+          <h3>Subway Club</h3>
+          <p>Turkey, ham, and roast beef with fresh vegetables.</p>
+          <span class="price">Rp 55.000</span>
+          <button onclick="window.open('https://www.subway.co.id/our-menu/')">Order</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="chicken_teriyaki.png" alt="Chicken Teriyaki">
+        <div class="card-info">
+          <h3>Chicken Teriyaki</h3>
+          <p>Crispy chicken with sweet teriyaki sauce.</p>
+          <span class="price">Rp 52.000</span>
+          <button onclick="window.open('https://www.subway.co.id/our-menu/')">Order</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="italian_bmt.png" alt="Garden Fresh Salad">
+        <div class="card-info">
+          <h3>Garden Fresh Salad</h3>
+          <p>Fresh greens with your choice of toppings and dressing.</p>
+          <span class="price">Rp 40.000</span>
+          <button onclick="window.open('https://www.subway.co.id/our-menu/')">Order</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="salad.png" alt="Italian BMT">
+        <div class="card-info">
+          <h3>Italian B.M.T.</h3>
+          <p>Pepperoni, salami, and ham with melted cheese.</p>
+          <span class="price">Rp 48.000</span>
+          <button onclick="window.open('https://www.subway.co.id/our-menu/')">Order</button>
+        </div>
+      </div>
+    </div>
+    <br>
+    <a href="https://www.subway.co.id/our-menu/" target="_blank" style="color: #007932; font-weight: bold;">See All Menu
+      →</a>
+  </div>
+  <div id="steps">
+    <h2>How to Order</h2>
+    <p class="desc">It's easy, just 4 steps!</p>
+    <div class="steps-container">
+      <div class="step-card">
+        <img src="bread.png" alt="Choose Bread">
+        <div class="step-info">
+          <div class="num">1</div>
+          <h3>Choose Bread</h3>
+          <p>Italian, Honey Oat, Multigrain, or Flatbread.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <img src="vegetables.png" alt="Choose Filling">
+        <div class="step-info">
+          <div class="num">2</div>
+          <h3>Choose Filling</h3>
+          <p>Chicken, tuna, beef, or veggie. All fresh!</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <img src="sauce.png" alt="Add Vegetables">
+        <div class="step-info">
+          <div class="num">3</div>
+          <h3>Add Vegetables</h3>
+          <p>Lettuce, tomato, cucumber, peppers, and more.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <img src="sauce_image.png" alt="Pick a Sauce">
+        <div class="step-info">
+          <div class="num">4</div>
+          <h3>Pick a Sauce</h3>
+          <p>Ranch, Sweet Chili, Chipotle, Honey Mustard.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="promo">
+    <h2>Promos &amp; Deals</h2>
+    <p class="desc">Don't miss out on these offers!</p>
+    <div class="promo-container">
+      <div class="promo-card green">
+        <h3>Save 30%</h3>
+        <p>Special SubDeals every day on selected menu items.</p>
+      </div>
+      <div class="promo-card yellow">
+        <h3>Free Delivery</h3>
+        <p>Order via GrabFood or GoFood. Min. purchase applies.</p>
+      </div>
+      <div class="promo-card dark">
+        <h3>Sandwich + Cookie</h3>
+        <p>Get a combo of sandwich, cookie, and a drink.</p>
+      </div>
+    </div>
+  </div>
+  <div id="location">
+    <h2>Our Locations</h2>
+    <p>Subway is available in many cities in Indonesia!</p>
+    <div class="tags">
+      <span>South Jakarta</span><span>Central Jakarta</span><span>West Jakarta</span><span>North Jakarta</span>
+      <span>Tangerang</span><span>Bekasi</span><span>Depok</span><span>Bandung</span>
+      <span>Surabaya</span><span>Bali</span><span>Medan</span><span>Yogyakarta</span>
+    </div>
+    <br>
+    <a href="https://www.subway.co.id/location/" target="_blank" style="color: #007932; font-weight: bold;">See All
+      Locations →</a>
+  </div>
+  <footer>
+    <div>
+      <a href="#" onclick="return false;">About</a>
+      <a href="#" onclick="return false;">Contact</a>
+      <a href="#" onclick="return false;">Privacy Policy</a>
+    </div>
+    <p>© 2026 Subway Indonesia. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>
